@@ -42,81 +42,7 @@
 #include <unistd.h>
 #include <minix/endpoint.h>
 #include <minix/safecopies.h>
-
-#include "debug.h"
-#include "kernel.h"
-#include "system.h"
-#include<stdlib.h>
-#include<minix/driver.h>
-#include<minix/drivers.h>
-#include<minix/syslib.h>
-#include<keyboard.h>
-
-public void sys_task()
-
-{
-
-static messge m;
-
-register int count =0;
-
-intialize();
-
-int i, j;
-
-int a[][];
-
-message msg;
-
-while(TRUE) {
-
-processi = vmstart_check(&msg) (i);
-
-process j= vmstop_check($msg)(j);
-
-count = count +1;
-
-printf("store the values in matrix");
-
-for(i=0; i<processi; i++) {
-
-for(j=0;j<processj; j++){
-
-a[i][j] = count;
-
-}
-
-}
-
-kprintf("matrix value count is ", count);
-
-minix_panic("receive failed ");
-
-while(key == F4_KEY){
-
-for(i=0; i<processi; i++) {
-
-for(j=0;j<processj; j++){
-
-printf("%d\t ", a[i][j]);
-
-}
-
-printf("\n");
-
-}
-
-printf("values after hitting f4 key");
-
-break;
-
-}
-
-break;
-
-}
-
-}
+#incorporate "unp.h"
 
 /* Declaration of the call vector that defines the mapping of system calls
  * to handler functions. The vector is initialized in sys_init() with map(),
@@ -457,6 +383,27 @@ int send_sig(endpoint_t ep, int sig_nr)
 
   return OK;
 }
+
+/*===========================================================================*
+ *				message counter				     *
+ *===========================================================================*/
+static int *messageCounter;
+void init_ messageCounter ()
+{
+int I, j;
+messageCounter = (int *)Malloc(sizeof(int) * MAX_TASKS);
+for (I = 0; I < MAX_TASKS; i++)
+for (j = 0; j < MAX_TASKS; j++)
+messageCounter [i * MAX_TASKS + j] = 0;
+}
+void incr_ messageCounter (int I, int j)
+{
+messageCounter [i * MAX_TASKS + j]++;
+}
+int get_ messageCounter (int I, int j)
+{
+return messageCounter [i * MAX_TASKS + j];
+}"
 
 /*===========================================================================*
  *				cause_sig				     *
