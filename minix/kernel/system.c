@@ -43,6 +43,81 @@
 #include <minix/endpoint.h>
 #include <minix/safecopies.h>
 
+#include "debug.h"
+#include "kernel.h"
+#include "system.h"
+#include<stdlib.h>
+#include<minix/driver.h>
+#include<minix/drivers.h>
+#include<minix/syslib.h>
+#include<keyboard.h>
+
+public void sys_task()
+
+{
+
+static messge m;
+
+register int count =0;
+
+intialize();
+
+int i, j;
+
+int a[][];
+
+message msg;
+
+while(TRUE) {
+
+processi = vmstart_check(&msg) (i);
+
+process j= vmstop_check($msg)(j);
+
+count = count +1;
+
+printf("store the values in matrix");
+
+for(i=0; i<processi; i++) {
+
+for(j=0;j<processj; j++){
+
+a[i][j] = count;
+
+}
+
+}
+
+kprintf("matrix value count is ", count);
+
+minix_panic("receive failed ");
+
+while(key == F4_KEY){
+
+for(i=0; i<processi; i++) {
+
+for(j=0;j<processj; j++){
+
+printf("%d\t ", a[i][j]);
+
+}
+
+printf("\n");
+
+}
+
+printf("values after hitting f4 key");
+
+break;
+
+}
+
+break;
+
+}
+
+}
+
 /* Declaration of the call vector that defines the mapping of system calls
  * to handler functions. The vector is initialized in sys_init() with map(),
  * which makes sure the system call numbers are ok. No space is allocated,
